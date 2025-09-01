@@ -1,5 +1,6 @@
 {
   "name": "blog",
+  "homepage": "https://shinobu-uwu.github.io/",
   "private": true,
   "type": "module",
   "scripts": {
