@@ -12,7 +12,7 @@ import {
   Text,
   useMantineTheme,
 } from '@mantine/core';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 
 export default function Header() {
   const { colors } = useMantineTheme();
