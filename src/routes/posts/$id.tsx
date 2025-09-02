@@ -30,8 +30,10 @@ function RouteComponent() {
   }
 
   return (
-    <div className="prose">
-      <ReactMarkdown>{query.data ?? ''}</ReactMarkdown>
+    <div className="flex justify-center min-h-screen px-4 mb-20">
+      <div className="prose prose-invert max-w-5xl">
+        <ReactMarkdown>{query.data ?? ''}</ReactMarkdown>
+      </div>
     </div>
   );
 }

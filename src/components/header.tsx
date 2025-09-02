@@ -2,78 +2,46 @@ import avatar from '@/assets/pfp.jpg';
 import {
   faBluesky,
   faGithub,
+  faLinkedin,
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  ActionIcon,
-  Avatar,
-  Button,
-  Text,
-  useMantineTheme,
-} from '@mantine/core';
-import { useNavigate } from '@tanstack/react-router';
+import { AppBar, Avatar, IconButton, Toolbar, Typography } from '@mui/material';
+import { Link } from '@tanstack/react-router';
 
 export default function Header() {
-  const { colors } = useMantineTheme();
-  const navigate = useNavigate();
+  const openFn = (url: string) => () => window.open(url, '_blank');
 
   return (
-    <header
-      className="border-b bg-linear-to-tr from-gray-500 to-gray-700 mb-4"
-      style={{ borderColor: colors.gray[3] }}
-    >
-      <nav className="flex flex-row items-center justify-between px-4 py-2">
-        <div className="flex flex-row items-center gap-4">
-          <Avatar src={avatar} size="lg" />
-          <Text size="xl" fw={700}>
-            Shinobu
-          </Text>
+    <AppBar variant="outlined" position="sticky" sx={{ marginBottom: 8 }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div className="flex flex-row items-center gap-2">
+          <Avatar src={avatar} />
+          <Link to="/">
+            <Typography variant="h6">Shinobu</Typography>
+          </Link>
         </div>
-        <div className="flex flex-row gap-4">
-          <Button
-            size="md"
-            onClick={() => navigate({ to: '/' })}
-            variant="subtle"
+        <div className="flex flex-row items-center gap-2">
+          <IconButton onClick={openFn('https://x.com/Shinobu_uwu')}>
+            <FontAwesomeIcon icon={faXTwitter} />
+          </IconButton>
+          <IconButton
+            onClick={openFn('https://bsky.app/profile/shinobu-dev.bsky.social')}
           >
-            Home
-          </Button>
-          <Button
-            size="md"
-            onClick={() => navigate({ to: '/posts' })}
-            variant="subtle"
+            <FontAwesomeIcon icon={faBluesky} />
+          </IconButton>
+          <IconButton onClick={openFn('https://github.com/shinobu-uwu')}>
+            <FontAwesomeIcon icon={faGithub} />
+          </IconButton>
+          <IconButton
+            onClick={openFn(
+              'https://www.linkedin.com/in/matheus-filipe-dos-santos-reinert-ba70901a3/',
+            )}
           >
-            Posts
-          </Button>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </IconButton>
         </div>
-        <div className="flex flex-row gap-4">
-          <ActionIcon
-            onClick={() =>
-              window.open('https://github.com/shinobu-uwu', '_blank')
-            }
-            variant="transparent"
-          >
-            <FontAwesomeIcon size="xl" icon={faGithub} />
-          </ActionIcon>
-          <ActionIcon
-            onClick={() =>
-              window.open(
-                'https://bsky.app/profile/shinobu-dev.bsky.social',
-                '_blank',
-              )
-            }
-            variant="transparent"
-          >
-            <FontAwesomeIcon size="xl" icon={faBluesky} />
-          </ActionIcon>
-          <ActionIcon
-            onClick={() => window.open('https://x.com/Shinobu_uwu', '_blank')}
-            variant="transparent"
-          >
-            <FontAwesomeIcon size="xl" icon={faXTwitter} />
-          </ActionIcon>
-        </div>
-      </nav>
-    </header>
+      </Toolbar>
+    </AppBar>
   );
 }

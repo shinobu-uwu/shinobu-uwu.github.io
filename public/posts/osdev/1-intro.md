@@ -1,4 +1,4 @@
-# Yet another OS tutorial
+# Yet Another Rust OS
 
 ## Introduction
 Hello, world! In this series of posts, we'll be building an operating system kernel from scratch
@@ -6,7 +6,7 @@ in Rust. Along the way we will explore how kernels manage memory, schedule proce
 
 This isn't meant to be a full-blown production OS, far from it, but rather an entry point for you learning journey in the
 OSDev world. We'll have the chance to understand the fundamentals of how operating systems work under the hood, and how Rust's
-safety and expressiveness can help us in such domain
+safety and expressiveness can help us in such domain.
 
 ## Why does this exist?
 The main reason I'm writing this series of blog posts is simple: there isn't much beginner-friendly content to for getting started in the OSDev world. Sure,
@@ -21,8 +21,8 @@ While it’s impossible to write a kernel without touching unsafe code, Rust let
 We can wrap the unsafe building blocks in safe abstractions, so the majority of our kernel remains safe, expressive, and less error-prone.
 
 ## What about "Writing an OS in Rust"?
-Those blog posts are great, and they helped me **a lot** when I first got into OSDev while writing the OS for my graduation thesis. 
-But they are outdated (a third edition is in the works, but only a few posts are available so far, and only in their github), incomplete, 
+Those blog posts are great, and they helped me **a lot** when I first got into OSDev while writing the OS for my graduation thesis.
+But they are outdated (a third edition is in the works, but only a few posts are available so far, and only in their github), incomplete,
 and include some design decisions I personally don't agree with, such as:
 
 - Using the `x86_64` crate: while it simplifies the early stages of development, the extra indirection it
@@ -57,7 +57,7 @@ This template comes with a pre-configured Makefile, which allows us to compile t
 For that, you will need to have [QEMU](https://www.qemu.org/) and the `make` and `xorriso` package installed in your system. Check your package manager
 repositories for that. With the dependencies in place, let’s dig into the code.
 
-In the root of the repository you will a few files:
+In the root of the repository you will see a few files:
 
 - `GNUMakefile`: what we will be read by `make` to build our project. Inside it you will see a few rules, they don't
 really matter now, all it does it is compiling and generating an ISO to be used to boot our kernel.
@@ -88,4 +88,4 @@ Don’t worry, these are just build artifacts generated during compilation.
 They’re already listed in the `.gitignore` file, so you don’t need to commit them to your repository.
 
 ## Conclusion
-That's it for now, folks! Now we have a working setup that we can build upong in later chapters. Tune in for the next one!
+That's it for now, folks! Now we have a working setup that we can build upon in later chapters. Tune in for the next one!

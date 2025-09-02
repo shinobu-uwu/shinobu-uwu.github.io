@@ -1,9 +1,13 @@
+import theme from '@/theme';
+import { ThemeProvider } from '@mui/material/styles';
+import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createRouter } from '@tanstack/react-router';
-import '@mantine/core/styles.css';
 
-import { createTheme, MantineProvider } from '@mantine/core';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 import * as TanStackQueryProvider from '@/integrations/tanstack-query/root-provider.tsx';
 
@@ -12,6 +16,7 @@ import { routeTree } from '@/routeTree.gen';
 
 import './styles.css';
 import reportWebVitals from '@/reportWebVitals.ts';
+import CssBaseline from '@mui/material/CssBaseline';
 
 // Create a new router instance
 
@@ -34,13 +39,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const theme = createTheme({
-  primaryColor: 'grape',
-  primaryShade: 6,
-  fontFamily: 'Inter, sans-serif',
-  headings: { fontFamily: 'Inter, sans-serif' },
-});
-
 // Render the app
 const rootElement = document.getElementById('app');
 if (rootElement && !rootElement.innerHTML) {
@@ -48,9 +46,10 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <TanStackQueryProvider.Provider {...TanStackQueryProviderContext}>
-        <MantineProvider defaultColorScheme="dark" theme={theme}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
           <RouterProvider router={router} />
-        </MantineProvider>
+        </ThemeProvider>
       </TanStackQueryProvider.Provider>
     </StrictMode>,
   );
