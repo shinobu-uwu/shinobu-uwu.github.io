@@ -1,8 +1,4 @@
-import {
-  HeadContent,
-  Scripts,
-  createRootRouteWithContext,
-} from '@tanstack/react-router'
+import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { MantineProvider, createTheme } from '@mantine/core'
@@ -13,8 +9,6 @@ import Header from '@/components/header'
 import TanStackQueryProvider from '@/integrations/tanstack-query/root-provider'
 
 import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
-
-import appCss from '@/styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
 
@@ -48,31 +42,7 @@ const theme = createTheme({
 })
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
-  head: () => ({
-    meta: [
-      {
-        charSet: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        title: 'Shinobu',
-      },
-    ],
-    links: [
-      {
-        rel: 'stylesheet',
-        href: appCss,
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        href: '/favicon.png',
-      },
-    ],
-  }),
+  component: RootLayout,
   notFoundComponent: () => (
     <main className="mx-auto flex min-h-[60vh] w-full max-w-4xl flex-col items-center justify-center gap-4 px-6 text-center text-[color:var(--dracula-foreground)]">
       <p className="text-sm uppercase tracking-[0.3em] text-[color:var(--dracula-comment)]">
@@ -92,40 +62,31 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       </a>
     </main>
   ),
-  shellComponent: RootDocument,
 })
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootLayout() {
   return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <MantineProvider
-          theme={theme}
-          defaultColorScheme="dark"
-          forceColorScheme="dark"
-        >
-          <TanStackQueryProvider>
-            <Header />
-            {children}
-            <TanStackDevtools
-              config={{
-                position: 'bottom-right',
-              }}
-              plugins={[
-                {
-                  name: 'Tanstack Router',
-                  render: <TanStackRouterDevtoolsPanel />,
-                },
-                TanStackQueryDevtools,
-              ]}
-            />
-          </TanStackQueryProvider>
-        </MantineProvider>
-        <Scripts />
-      </body>
-    </html>
+    <MantineProvider
+      theme={theme}
+      defaultColorScheme="dark"
+      forceColorScheme="dark"
+    >
+      <TanStackQueryProvider>
+        <Header />
+        <Outlet />
+        <TanStackDevtools
+          config={{
+            position: 'bottom-right',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            TanStackQueryDevtools,
+          ]}
+        />
+      </TanStackQueryProvider>
+    </MantineProvider>
   )
 }

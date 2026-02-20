@@ -33,12 +33,8 @@ jobs:
         run: bun run build
       - name: Resolve output directory
         run: |
-          if [ -f dist/client/index.html ]; then
-            echo "OUTPUT_DIR=dist/client" >> "$GITHUB_ENV"
-          elif [ -d dist ]; then
+          if [ -f dist/index.html ]; then
             echo "OUTPUT_DIR=dist" >> "$GITHUB_ENV"
-          elif [ -d .output/public ]; then
-            echo "OUTPUT_DIR=.output/public" >> "$GITHUB_ENV"
           else
             echo "No build output directory found." >&2
             exit 1
