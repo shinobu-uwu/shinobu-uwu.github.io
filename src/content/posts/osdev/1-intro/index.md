@@ -1,4 +1,9 @@
-# Yet Another Rust OS
+---
+title: Yet Another Rust OS
+summary: A beginner-friendly OSDev series starting from scratch with a Rust kernel.
+date: 2026-02-20
+tag: OSDev
+---
 
 ## Introduction
 
@@ -51,7 +56,7 @@ To get the most out of these posts, you should already have some familiarity wit
 
 For this project we will start with a template, but don't worry we will go through it step by step.
 
-The template we will use is the [Limine Rust template](https://github.com/limine-bootloader/limine-c-template), which is a fork of the
+The template we will use is the [Limine Rust template](https://github.com/jasondyoungberg/limine-rust-template), which is a fork of the
 official C template maintained by the Limine team. I recommend cloning the repository, deleting the .git directory, and then running `git init`
 to have a fresh repository to work with.
 
