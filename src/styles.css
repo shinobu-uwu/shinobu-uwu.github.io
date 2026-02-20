@@ -35,3 +35,9 @@ body {
 code {
   font-family: "JetBrains Mono", "Courier New", monospace;
 }
+
+/* Remove Tailwind Typography's inline-code backticks */
+.prose code::before,
+.prose code::after {
+  content: "";
+}
