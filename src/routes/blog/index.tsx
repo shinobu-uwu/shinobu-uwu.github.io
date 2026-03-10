@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import PostCard from '@/components/post-card'
-import { posts } from '@/data/posts'
+import { createFileRoute } from '@tanstack/react-router';
+import PostCard from '@/components/post-card';
+import { posts } from '@/data/posts';
 
-export const Route = createFileRoute('/blog/')({ component: BlogIndex })
+export const Route = createFileRoute('/blog/')({ component: BlogIndex });
 
 function BlogIndex() {
   return (
@@ -30,5 +30,5 @@ function BlogIndex() {
         </div>
       )}
     </section>
-  )
+  );
 }

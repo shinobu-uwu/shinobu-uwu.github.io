@@ -23,7 +23,11 @@
         devShells.default = pkgs.mkShell {
           buildInputs = [
             pkgs.bun
+            pkgs.biome
           ];
+
+          shellHook = "export BIOME_BINARY=\"${pkgs.biome}/bin/biome\"";
+
         };
       }
     );

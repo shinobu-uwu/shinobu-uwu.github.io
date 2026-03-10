@@ -1,19 +1,19 @@
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
-import { MantineProvider, createTheme } from '@mantine/core'
-import '@mantine/core/styles.layer.css'
+import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
+import { TanStackDevtools } from '@tanstack/react-devtools';
+import { MantineProvider, createTheme } from '@mantine/core';
+import '@mantine/core/styles.layer.css';
 
-import Header from '@/components/header'
+import Header from '@/components/header';
 
-import TanStackQueryProvider from '@/integrations/tanstack-query/root-provider'
+import TanStackQueryProvider from '@/integrations/tanstack-query/root-provider';
 
-import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools'
+import TanStackQueryDevtools from '@/integrations/tanstack-query/devtools';
 
-import type { QueryClient } from '@tanstack/react-query'
+import type { QueryClient } from '@tanstack/react-query';
 
 interface MyRouterContext {
-  queryClient: QueryClient
+  queryClient: QueryClient;
 }
 
 const theme = createTheme({
@@ -39,7 +39,7 @@ const theme = createTheme({
     fontWeight: '600',
   },
   defaultRadius: 'md',
-})
+});
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: RootLayout,
@@ -48,9 +48,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       <p className="text-sm uppercase tracking-[0.3em] text-[color:var(--dracula-comment)]">
         404
       </p>
-      <h1 className="text-4xl font-semibold tracking-tight">
-        Page not found
-      </h1>
+      <h1 className="text-4xl font-semibold tracking-tight">Page not found</h1>
       <p className="text-base text-[color:var(--dracula-comment)]">
         The page you are looking for does not exist.
       </p>
@@ -62,7 +60,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       </a>
     </main>
   ),
-})
+});
 
 function RootLayout() {
   return (
@@ -88,5 +86,5 @@ function RootLayout() {
         />
       </TanStackQueryProvider>
     </MantineProvider>
-  )
+  );
 }

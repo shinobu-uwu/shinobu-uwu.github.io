@@ -1,22 +1,22 @@
-import { Link, createFileRoute, notFound } from '@tanstack/react-router'
-import ReactMarkdown from 'react-markdown'
-import { posts } from '@/data/posts'
+import { Link, createFileRoute, notFound } from '@tanstack/react-router';
+import ReactMarkdown from 'react-markdown';
+import { posts } from '@/data/posts';
 
 export const Route = createFileRoute('/blog/$topic/$slug')({
   component: BlogPost,
   loader: ({ params }) => {
     const post = posts.find(
-      (item) => item.slug === params.slug && item.topic === params.topic
-    )
+      (item) => item.slug === params.slug && item.topic === params.topic,
+    );
     if (!post) {
-      throw notFound()
+      throw notFound();
     }
-    return post
+    return post;
   },
-})
+});
 
 function BlogPost() {
-  const post = Route.useLoaderData()
+  const post = Route.useLoaderData();
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(189,147,249,0.18),_transparent_50%),_linear-gradient(180deg,_#282a36_0%,_#2f3140_60%,_#282a36_100%)] text-[color:var(--dracula-foreground)]">
@@ -46,5 +46,5 @@ function BlogPost() {
         </article>
       </section>
     </div>
-  )
+  );
 }

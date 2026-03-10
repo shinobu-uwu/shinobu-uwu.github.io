@@ -1,16 +1,16 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router';
 
 type PostCardProps = {
-  slug: string
-  topic: string
-  title: string
-  summary: string
-  date: string
-  tag: string
-  actionLabel?: string
-  variant?: 'card' | 'plain'
-  className?: string
-}
+  slug: string;
+  topic: string;
+  title: string;
+  summary: string;
+  date: string;
+  tag: string;
+  actionLabel?: string;
+  variant?: 'card' | 'plain';
+  className?: string;
+};
 
 export default function PostCard({
   slug,
@@ -26,7 +26,7 @@ export default function PostCard({
   const base =
     variant === 'card'
       ? 'group flex h-full flex-col justify-between rounded-3xl border border-[color:var(--dracula-current-line)] bg-[color:var(--dracula-current-line)]/30 p-6 transition hover:-translate-y-1 hover:border-[color:var(--dracula-purple)]'
-      : 'space-y-4'
+      : 'space-y-4';
 
   return (
     <article className={`${base} ${className}`.trim()}>
@@ -55,5 +55,5 @@ export default function PostCard({
         </Link>
       ) : null}
     </article>
-  )
+  );
 }

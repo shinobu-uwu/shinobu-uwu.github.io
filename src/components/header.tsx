@@ -1,13 +1,13 @@
-import { Link } from '@tanstack/react-router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from '@tanstack/react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBluesky,
   faGithub,
   faLinkedin,
   faXTwitter,
-} from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import headerImage from '@/assets/shinobu.jpg'
+} from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import headerImage from '@/assets/shinobu.jpg';
 
 const socials = [
   {
@@ -35,7 +35,7 @@ const socials = [
     href: 'mailto:matheus.reinert@protonmail.com',
     icon: faEnvelope,
   },
-]
+];
 
 export default function Header() {
   return (
@@ -75,5 +75,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
